@@ -165,7 +165,7 @@ class Airplane {
           console.log(aissata);
           console.log(aissata.demo('Web Dev'));
           console.log(aissata.grade('Aissata', 'Web Dev'));
-          
+
   /*
     TASK 5
       - Write a Student class extending Lambdasian.
@@ -181,9 +181,35 @@ class Airplane {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
- }
+ class Student extends Lambdasian{
+  constructor(attr){
+    super(attr);
+    this.previousBackground = attr.previousBackground;
+    this.className = attr.className;
+    this.favSubjects = attr.favSubjects;
+  }
+  listSubjects(){
+    return `Loving ${this.favSubjects}!`;
+  }
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+}
+const brain = new Student({
+  name: 'Brain',
+  age: 32,
+  location: 'Bikini Bottom',
+  previousBackground: 'Retail',
+  className: 'Web45',
+  favSubjects: ['HTML', ' CSS', ' JS']
+});
+console.log(brain);
+console.log(brain.listSubjects());
+console.log(brain.PRAssignment('Art'));
+console.log(brain.sprintChallenge('HTML'));
   
   /*
     TASK 6
