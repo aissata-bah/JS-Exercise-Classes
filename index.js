@@ -151,7 +151,7 @@ class Airplane {
               return `Today we are learning about ${subject}`;
             }
             grade(student, subject){
-              return `${student} receives a perfect score on ${subject}`
+              return `${student.name} receives a perfect score on ${subject}`
             }
           }
           const aissata = new Instructor({
@@ -224,9 +224,35 @@ console.log(brain.sprintChallenge('HTML'));
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
- }
+          class ProjectManager extends Instructor{
+            constructor(attr){
+              super(attr);
+              this.gradClassName = attr.gradClassName;
+              this.favInstructor = attr.favInstructor;
+            }
+            standUp(slackChannel){
+              return `${this.name} announces to ${slackChannel}, @channel standy times!`;
+            }
+            debugsCode(student, subject){
+              return `${this.name} debugs ${student.name}'s code on ${subject}`;
+            }
+          }
+          const benito = new ProjectManager({
+            name: 'Benito',
+            age: 1,
+            location: 'DFW',
+            specialty: 'barking',
+            favLanguage: 'dog',
+            catchPhrase: 'woof! woof!',
+            gradClassName: 'Woof Academy 2021',
+            favInstructor: 'Fernando'
+          });
+          console.log(benito);
+          console.log(benito.speak());
+          console.log(benito.demo('Licking Butt'));
+          console.log(benito.grade({name: 'Bebito'}, 'Licking Paw'));
+          console.log(benito.standUp('Dog2k21'));
+          console.log(benito.debugsCode({name: 'Fer'}, 'Ball'));
   /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
